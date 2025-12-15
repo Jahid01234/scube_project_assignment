@@ -36,14 +36,14 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: height ?? 57,
+      height: height ?? 56,
       width: double.infinity,
       decoration: BoxDecoration(
         border: Border.all(
-          color: borderColor ?? const Color(0xFFF7F8F8),
+          color: borderColor ?? AppColors.gray,
           width: 1,
         ),
-        borderRadius: BorderRadius.circular(radius ?? 8),
+        borderRadius: BorderRadius.circular(radius ?? 10),
       ),
       child: Center(
         child: TextField(
@@ -66,7 +66,7 @@ class CustomTextField extends StatelessWidget {
             suffixIcon: suffixIcon,
             prefixIcon: prefixIcon,
             filled: true,
-            fillColor: const Color(0xFFF7F8F8),
+            fillColor: AppColors.white,
             hintStyle: GoogleFonts.poppins(
               fontSize: 14,
               fontWeight: FontWeight.w400,
@@ -74,11 +74,11 @@ class CustomTextField extends StatelessWidget {
             ),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(10),
             ),
             focusedBorder: OutlineInputBorder(
               borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: BorderRadius.circular(10),
             ),
             border: InputBorder.none,
             contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 16),

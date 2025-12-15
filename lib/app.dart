@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:scube_assignment/core/const/app_colors.dart';
 import 'package:scube_assignment/core/const/app_size.dart';
 import 'package:scube_assignment/core/routes/routes.dart';
+import 'package:scube_assignment/features/auth/login/view/login_screen.dart';
 
 class ScubeAssignmentApp extends StatelessWidget {
   const ScubeAssignmentApp({super.key});
@@ -15,10 +16,12 @@ class ScubeAssignmentApp extends StatelessWidget {
         title: 'Scube App',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(
-            scaffoldBackgroundColor: AppColors.white
+            scaffoldBackgroundColor: AppColors.scaffoldBgColor
         ),
         //initialRoute: AppRoutes.splash,
-        getPages: AppRoutes.routes
+        //getPages: AppRoutes.routes,
+      home: LoginScreen(),
+
     );
   }
 }

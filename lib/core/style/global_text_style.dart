@@ -8,7 +8,7 @@ TextStyle globalTextStyle({
   double lineHeight = 1.5,
   Color color = Colors.black,
 }) {
-  return GoogleFonts.poppins(
+  return GoogleFonts.inter(
     fontSize: fontSize,
     fontWeight: fontWeight,
     height: lineHeight,

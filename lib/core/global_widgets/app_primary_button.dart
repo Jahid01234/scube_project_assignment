@@ -34,7 +34,7 @@ class AppPrimaryButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
-      borderRadius: BorderRadius.circular(radius ?? 30),
+      borderRadius: BorderRadius.circular(radius ?? 10),
       child: GestureDetector(
         onTap: onTap,
         child: Container(
@@ -42,9 +42,8 @@ class AppPrimaryButton extends StatelessWidget {
           width: weight ?? double.infinity,
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(radius ?? 30),
-            color: bgColor,
-            gradient: bgColor == null ? AppColors.appGradient1 : null,
+            borderRadius: BorderRadius.circular(radius ?? 10),
+            color: bgColor ?? AppColors.appPrimaryColor,
             border: border != null
                 ? Border.all(color: border!)
                 : null,
@@ -58,7 +57,7 @@ class AppPrimaryButton extends StatelessWidget {
                 child: Text(
                   text,
                   style: GoogleFonts.poppins(
-                    fontSize: fontSize ?? 16,
+                    fontSize: fontSize ?? 18,
                     fontWeight: fontWeight ?? FontWeight.w600,
                     color: textColor ?? AppColors.black,
                   ),
