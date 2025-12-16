@@ -16,6 +16,7 @@ class CustomTextField extends StatelessWidget {
   final ValueChanged<String>? onChanged;
   final bool obsecureText;
   final TextInputType? textInputType;
+  final EdgeInsetsGeometry? contentPadding;
 
   const CustomTextField({
     super.key,
@@ -31,6 +32,7 @@ class CustomTextField extends StatelessWidget {
     this.borderColor,
     this.readOnly,
     this.onTap,
+    this.contentPadding,
   });
 
   @override
@@ -54,9 +56,9 @@ class CustomTextField extends StatelessWidget {
           keyboardType: textInputType,
           onChanged: onChanged,
           readOnly: readOnly ?? false,
-          cursorColor: Colors.grey,
+          cursorColor: AppColors.gray,
           enableInteractiveSelection: false,
-          style: GoogleFonts.poppins(
+          style: GoogleFonts.inter(
             fontSize: 16,
             fontWeight: FontWeight.w400,
             color: AppColors.black,
@@ -67,7 +69,7 @@ class CustomTextField extends StatelessWidget {
             prefixIcon: prefixIcon,
             filled: true,
             fillColor: AppColors.white,
-            hintStyle: GoogleFonts.poppins(
+            hintStyle: GoogleFonts.inter(
               fontSize: 14,
               fontWeight: FontWeight.w400,
               color: AppColors.gray,
@@ -81,7 +83,7 @@ class CustomTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
             ),
             border: InputBorder.none,
-            contentPadding: EdgeInsets.symmetric(horizontal: 16,vertical: 16),
+            contentPadding: contentPadding ?? const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
           ),
         ),
       ),

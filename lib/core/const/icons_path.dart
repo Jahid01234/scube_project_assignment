@@ -9,4 +9,6 @@ class IconsPath {
   static const String solarCell = "assets/icons/solarCell.png";
   static const String solarChart = "assets/icons/solarChart.png";
   static const String notification = "assets/icons/notification.png";
+  static const String search = "assets/icons/search.png";
+  static const String calendar = "assets/icons/calendar.png";
 }
