@@ -46,7 +46,6 @@ class MenuItemDetailsScreen extends StatelessWidget {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-
               ],
             ),
           ),

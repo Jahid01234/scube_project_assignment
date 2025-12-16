@@ -23,7 +23,7 @@ class DashboardScreen extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Column(
           children: [
-            // 🔹 Electricity Card
+            // Electricity Card.........
             Container(
               decoration: BoxDecoration(
                 color: AppColors.white,
@@ -60,7 +60,8 @@ class DashboardScreen extends StatelessWidget {
                   ),
                   SizedBox(
                     height: getHeight(300),
-                    child: Obx(() => ListView.builder(
+                    child: Obx(
+                      () => ListView.builder(
                         padding: EdgeInsets.zero,
                         itemCount: controller.dataTypeList.length,
                         itemBuilder: (context, index) {
@@ -84,9 +85,7 @@ class DashboardScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: getHeight(40)),
-            DashboardMenuGrid(
-
-            ),
+            DashboardMenuGrid(),
           ],
         ),
       ),
@@ -112,7 +111,7 @@ class DashboardScreen extends StatelessWidget {
                       onTap: () => controller.changeSource(e.key),
                       child: Container(
                         alignment: Alignment.center,
-                        padding: EdgeInsets.symmetric(vertical: getHeight(14)),
+                        padding: EdgeInsets.symmetric(vertical: 5),
                         decoration: BoxDecoration(
                           color: controller.selectedSourceIndex.value == e.key
                               ? AppColors.appPrimaryColor
@@ -190,9 +189,14 @@ class DashboardScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ).toList(),
+                  )
+                  .toList(),
             ),
-            Container(height: 1, width: double.infinity, color: AppColors.gray),
+            Container(
+                height: 1,
+                width: double.infinity,
+                color: AppColors.gray,
+            ),
           ],
         ),
       ),

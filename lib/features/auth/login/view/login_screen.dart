@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:scube_assignment/core/const/app_colors.dart';
-import 'package:scube_assignment/core/const/app_size.dart';
 import 'package:scube_assignment/core/const/images_path.dart';
 import 'package:scube_assignment/core/global_widgets/app_primary_button.dart';
 import 'package:scube_assignment/core/global_widgets/custom_text_field.dart';
@@ -24,20 +23,16 @@ class LoginScreen extends StatelessWidget {
           Container(
             width: size.width,
             height: size.height,
-            color: AppColors.appPrimaryColor
+            color: AppColors.appPrimaryColor,
           ),
           Positioned(
             top: size.height * 0.12,
             left: 0,
             right: 0,
             child: Column(
-              children:  [
-                Image.asset(
-                  ImagePath.appLogo,
-                  height: getHeight(98),
-                  width: getWidth(96),
-                ),
-                SizedBox(height: getHeight(15)),
+              children: [
+                Image.asset(ImagePath.appLogo, height: 98, width: 96),
+                SizedBox(height: size.height * 0.02),
                 Text(
                   "SCUBE",
                   style: globalTextStyle(
@@ -46,7 +41,7 @@ class LoginScreen extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                SizedBox(height: getHeight(2)),
+                SizedBox(height: size.height * 0.005),
                 Text(
                   "Control & Monitoring System",
                   style: globalTextStyle(
@@ -67,7 +62,7 @@ class LoginScreen extends StatelessWidget {
               decoration: const BoxDecoration(
                 color: AppColors.white,
                 borderRadius: BorderRadius.vertical(
-                  top: Radius.circular(20),
+                    top: Radius.circular(20),
                 ),
               ),
               child: SingleChildScrollView(
@@ -81,15 +76,15 @@ class LoginScreen extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                     SizedBox(height: getHeight(25)),
+                    SizedBox(height: size.height * 0.03),
 
                     CustomTextField(
                       controller: controller.usernameController,
                       hinText: "Username",
                     ),
-                    SizedBox(height: getHeight(20)),
+                    SizedBox(height: size.height * 0.02),
                     Obx(
-                          () => CustomTextField(
+                      () => CustomTextField(
                         obsecureText: controller.isPasswordHidden.value,
                         controller: controller.passwordController,
                         hinText: "Password",
@@ -105,9 +100,11 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
 
-                    SizedBox(height: getHeight(10)),
+                    SizedBox(height: size.height * 0.01),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        controller.onForgotPasswordTap();
+                      },
                       child: Align(
                         alignment: Alignment.centerRight,
                         child: Text(
@@ -116,14 +113,12 @@ class LoginScreen extends StatelessWidget {
                             color: Colors.grey,
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
-                          ).copyWith(
-                            decoration: TextDecoration.underline,
-                          ),
+                          ).copyWith(decoration: TextDecoration.underline),
                         ),
                       ),
                     ),
 
-                    SizedBox(height: getHeight(50)),
+                    SizedBox(height: size.height * 0.05),
                     AppPrimaryButton(
                       text: "Login",
                       textColor: AppColors.white,
@@ -131,7 +126,7 @@ class LoginScreen extends StatelessWidget {
                         Get.toNamed(AppRoutes.dashboard);
                       },
                     ),
-                    SizedBox(height: getHeight(15)),
+                    SizedBox(height: size.height * 0.02),
 
                     Center(
                       child: RichText(
@@ -152,6 +147,7 @@ class LoginScreen extends StatelessWidget {
                               ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
+                                  controller.onRegisterNowTap();
                                 },
                             ),
                           ],

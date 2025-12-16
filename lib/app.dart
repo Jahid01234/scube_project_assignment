@@ -13,11 +13,11 @@ class ScubeAssignmentApp extends StatelessWidget {
     return GetMaterialApp(
         title: 'Scube App',
         debugShowCheckedModeBanner: false,
+        initialRoute: AppRoutes.login,
+        getPages: AppRoutes.routes,
         theme: ThemeData(
             scaffoldBackgroundColor: AppColors.scaffoldBgColor
         ),
-        initialRoute: AppRoutes.login,
-        getPages: AppRoutes.routes,
     );
   }
 }

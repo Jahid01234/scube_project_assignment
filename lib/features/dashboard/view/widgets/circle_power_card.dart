@@ -9,38 +9,35 @@ class CirclePowerCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height:150,
+      height: 150,
       width: 150,
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        border: Border.all(
-          color: Color(0xff398FC9),
-          width: 20,
-        ),
+        border: Border.all(color: Color(0xff398FC9), width: 20),
       ),
       child: Center(
-        child:  Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text(
-                "Total Power",
-                style: globalTextStyle(
-                  color: AppColors.black,
-                  fontSize: 12,
-                  fontWeight: FontWeight.w400,
-                ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              "Total Power",
+              style: globalTextStyle(
+                color: AppColors.black,
+                fontSize: 12,
+                fontWeight: FontWeight.w400,
               ),
-              SizedBox(height: getHeight(2)),
-              Text(
-                "5.53 kw",
-                style: globalTextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.black,
-                ),
+            ),
+            SizedBox(height: getHeight(2)),
+            Text(
+              "5.53 kw",
+              style: globalTextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.w600,
+                color: AppColors.black,
               ),
-            ],
-          ),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -25,14 +25,10 @@ class EnergyChartCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: const Color(0xffA5A7B9),
-            width: 1,
-          ),
+          border: Border.all(color: const Color(0xffA5A7B9), width: 1),
         ),
         child: Column(
           children: [
-            /// Header
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -57,8 +53,6 @@ class EnergyChartCard extends StatelessWidget {
             ),
 
             const SizedBox(height: 16),
-
-            /// List
             ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
@@ -95,10 +89,7 @@ class EnergyChartCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: const Color(0xffA5A7B9),
-            width: 1,
-          ),
+          border: Border.all(color: const Color(0xffA5A7B9), width: 1),
         ),
         child: Padding(
           padding: const EdgeInsets.all(10),
@@ -128,11 +119,7 @@ class EnergyChartCard extends StatelessWidget {
 
               const SizedBox(width: 10),
 
-              Container(
-                height: 50,
-                width: 1,
-                color: const Color(0xffA5A7B9),
-              ),
+              Container(height: 50, width: 1, color: const Color(0xffA5A7B9)),
 
               const SizedBox(width: 10),
 
@@ -168,10 +155,7 @@ class EnergyChartCard extends StatelessWidget {
         ),
         Text(
           ':  ',
-          style: globalTextStyle(
-            fontSize: 12,
-            color: const Color(0xff646984),
-          ),
+          style: globalTextStyle(fontSize: 12, color: const Color(0xff646984)),
         ),
         Expanded(
           child: Text(

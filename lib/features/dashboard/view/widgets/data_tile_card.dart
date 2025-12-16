@@ -32,20 +32,15 @@ class DataTileCard extends StatelessWidget {
           margin: EdgeInsets.only(bottom: getHeight(12)),
           padding: EdgeInsets.all(getWidth(14)),
           decoration: BoxDecoration(
-            color: isLast? Color(0xffE5F4FE).withValues(alpha: 0.3) :  Color(0xffE5F4FE),
+            color: isLast
+                ? Color(0xffE5F4FE).withValues(alpha: 0.3)
+                : Color(0xffE5F4FE),
             borderRadius: BorderRadius.circular(4),
-            border: Border.all(
-              color: AppColors.containerBorderColor,
-              width: 1,
-            ),
+            border: Border.all(color: AppColors.containerBorderColor, width: 1),
           ),
           child: Row(
             children: [
-              Image.asset(
-                model.image,
-                height: 24,
-                width: 24,
-              ),
+              Image.asset(model.image, height: 24, width: 24),
               SizedBox(width: getWidth(12)),
               Expanded(
                 child: Column(
@@ -57,7 +52,9 @@ class DataTileCard extends StatelessWidget {
                           width: 12,
                           height: 12,
                           decoration: BoxDecoration(
-                            color: index == 1 ? Color(0xffFB902E):Color(0xff78C6FF),
+                            color: index == 1
+                                ? Color(0xffFB902E)
+                                : Color(0xff78C6FF),
                             borderRadius: BorderRadius.circular(2),
                           ),
                         ),
@@ -73,13 +70,17 @@ class DataTileCard extends StatelessWidget {
                                   color: AppColors.black,
                                 ),
                               ),
-                              SizedBox(width: 4,),
+                              SizedBox(width: 4),
                               Text(
-                                model.isActive == false ? "(Active)" : "(Inactive)",
+                                model.isActive == false
+                                    ? "(Active)"
+                                    : "(Inactive)",
                                 style: globalTextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 10,
-                                  color:  model.isActive == false ? AppColors.appPrimaryColor : AppColors.red,
+                                  color: model.isActive == false
+                                      ? AppColors.appPrimaryColor
+                                      : AppColors.red,
                                 ),
                               ),
                             ],

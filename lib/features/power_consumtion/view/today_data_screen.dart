@@ -8,23 +8,21 @@ import 'package:scube_assignment/features/power_consumtion/model/energy_data.dar
 
 class TodayDataScreen extends StatelessWidget {
   TodayDataScreen({super.key});
-  final PowerConsumptionController controller =
-  Get.put(PowerConsumptionController());
+  final PowerConsumptionController controller = Get.put(
+    PowerConsumptionController(),
+  );
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 10),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.all(
-              color: Color(0xffA5A7B9),
-              width: 1,
-            ),
-          ),
+        padding: EdgeInsets.symmetric(horizontal: 10),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: Color(0xffA5A7B9), width: 1),
+        ),
         child: Column(
           children: [
             Center(
@@ -32,37 +30,39 @@ class TodayDataScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                 Text(
+                  Text(
                     'Energy Chart',
                     style: globalTextStyle(
-                        fontSize: 14,
-                        color: AppColors.black,
-                        fontWeight: FontWeight.w600,
+                      fontSize: 14,
+                      color: AppColors.black,
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
 
-                   SizedBox(width: 30),
-                   Text(
+                  SizedBox(width: 30),
+                  Text(
                     '5.53 kw',
-                     style: globalTextStyle(
-                       fontSize: 32,
-                       color: AppColors.black,
-                       fontWeight: FontWeight.w600,
-                     ),
-                   ),
+                    style: globalTextStyle(
+                      fontSize: 32,
+                      color: AppColors.black,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ],
               ),
             ),
             const SizedBox(height: 16),
-            Obx(() => ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: controller.energyDataList.length,
-              itemBuilder: (context, index) {
-                final data = controller.energyDataList[index];
-                return _buildDataRow(data,index);
-              },
-            )),
+            Obx(
+              () => ListView.builder(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: controller.energyDataList.length,
+                itemBuilder: (context, index) {
+                  final data = controller.energyDataList[index];
+                  return _buildDataRow(data, index);
+                },
+              ),
+            ),
           ],
         ),
       ),
@@ -75,53 +75,50 @@ class TodayDataScreen extends StatelessWidget {
         case 0:
           return AppColors.appPrimaryColor;
         case 1:
-          return Color(0xff7BD7FF); 
+          return Color(0xff7BD7FF);
         case 2:
-          return Color(0xff9747FF); 
+          return Color(0xff9747FF);
         case 3:
-          return Color(0xffFF9A00); 
+          return Color(0xffFF9A00);
         default:
           return AppColors.appPrimaryColor;
       }
     }
+
     return Padding(
       padding: EdgeInsets.only(bottom: 10),
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: Color(0xffA5A7B9),
-            width: 1,
-          ),
+          border: Border.all(color: Color(0xffA5A7B9), width: 1),
         ),
         child: Padding(
           padding: EdgeInsets.all(10),
           child: Row(
             children: [
               Column(
-                  children: [
-                    Container(
-                      width: 8,
-                      height: 8,
-                      decoration: BoxDecoration(
-                        color: getColorByIndex(index),
-                        shape: BoxShape.circle,
-                      ),
+                children: [
+                  Container(
+                    width: 8,
+                    height: 8,
+                    decoration: BoxDecoration(
+                      color: getColorByIndex(index),
+                      shape: BoxShape.circle,
                     ),
-                    SizedBox(width: 8),
-                    Text(
-                      data.label,
-                      style: globalTextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 12,
-                        color: AppColors.black,
-                      ),
+                  ),
+                  SizedBox(width: 8),
+                  Text(
+                    data.label,
+                    style: globalTextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12,
+                      color: AppColors.black,
                     ),
-                  ],
-                ),
+                  ),
+                ],
+              ),
               SizedBox(width: 10), // Space before divider
-
               // Vertical Divider using Container
               Container(
                 height: 50, // Adjust height as needed

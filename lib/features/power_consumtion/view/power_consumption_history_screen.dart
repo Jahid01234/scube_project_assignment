@@ -23,10 +23,9 @@ class PowerConsumptionHistoryScreen extends StatelessWidget {
           Stack(
             clipBehavior: Clip.none,
             children: [
-              // MAIN WHITE CONTAINER
               Container(
                 width: double.infinity,
-                padding: const EdgeInsets.only(top: 40, bottom: 0),
+                padding: const EdgeInsets.only(top: 40),
                 decoration:  BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.only(
@@ -35,8 +34,6 @@ class PowerConsumptionHistoryScreen extends StatelessWidget {
                   ),
                 ),
               ),
-
-
               Positioned(
                 top: -20,
                 left: 0,
@@ -59,13 +56,15 @@ class PowerConsumptionHistoryScreen extends StatelessWidget {
                           'Data View',
                           controller.isDataView.value,
                               () => controller.toggleView(),
-                        )),
+                         ),
+                        ),
                         const SizedBox(width: 12),
                         Obx(() => _buildToggleButton(
                           'Revenue View',
                           !controller.isDataView.value,
                               () => controller.toggleView(),
-                        )),
+                         ),
+                        ),
                       ],
                     ),
                   ),
@@ -73,9 +72,6 @@ class PowerConsumptionHistoryScreen extends StatelessWidget {
               ),
             ],
           ),
-
-
-          // 🔹 CONTENT CONTAINER (SCREEN SWITCH HERE)
           Expanded(
             child: Obx(() {
               return Container(
@@ -96,7 +92,10 @@ class PowerConsumptionHistoryScreen extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 8,
+        ),
         child: Row(
           children: [
             Container(
@@ -105,7 +104,9 @@ class PowerConsumptionHistoryScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: isActive ? AppColors.appPrimaryColor : Color(0xffA5A7B9),
+                  color: isActive
+                      ? AppColors.appPrimaryColor
+                      : Color(0xffA5A7B9),
                   width: 1.5,
                 ),
               ),
@@ -115,7 +116,9 @@ class PowerConsumptionHistoryScreen extends StatelessWidget {
                   height: 10,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: isActive ? AppColors.appPrimaryColor : Color(0xffA5A7B9),
+                    color: isActive
+                        ? AppColors.appPrimaryColor
+                        : Color(0xffA5A7B9),
                   ),
                 ),
               ),
@@ -125,8 +128,12 @@ class PowerConsumptionHistoryScreen extends StatelessWidget {
               text,
               style: globalTextStyle(
                 fontSize: 16,
-                color: isActive ? AppColors.appPrimaryColor : Color(0xffA5A7B9),
-                fontWeight: isActive ? FontWeight.w600 : FontWeight.w400,
+                color: isActive
+                    ? AppColors.appPrimaryColor
+                    : Color(0xffA5A7B9),
+                fontWeight: isActive
+                    ? FontWeight.w600
+                    : FontWeight.w400,
               ),
             ),
           ],

@@ -3,13 +3,10 @@ import 'package:scube_assignment/core/const/icons_path.dart';
 import 'package:scube_assignment/features/dashboard/model/data_type_model.dart';
 
 
-
 class DashboardController extends GetxController {
   var selectedTabIndex = 0.obs;
   var selectedSourceIndex = 0.obs;
   RxList<DataTypeModel> dataTypeList = <DataTypeModel>[].obs;
-
-
 
 
   @override

@@ -13,59 +13,52 @@ class DashboardMenuGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: List.generate(
-        (controller.items.length / 2).ceil(),
-            (rowIndex) {
-          final int firstIndex = rowIndex * 2;
-          final int secondIndex = firstIndex + 1;
-          return Padding(
-            padding: const EdgeInsets.only(bottom: 12),
-            child: Row(
-              children: [
-                // LEFT ITEM...........
-                Expanded(
-                  child: _menuItem(controller.items[firstIndex]),
-                ),
+      children: List.generate((controller.items.length / 2).ceil(), (rowIndex) {
+        final int firstIndex = rowIndex * 2;
+        final int secondIndex = firstIndex + 1;
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 12),
+          child: Row(
+            children: [
+              // Left item...........
+              Expanded(child: _menuItem(controller.items[firstIndex])),
 
-                const SizedBox(width: 12),
+              const SizedBox(width: 12),
 
-                // RIGHT ITEM (if exists)...........
-                Expanded(
-                  child: secondIndex < controller.items.length
-                      ? _menuItem(controller.items[secondIndex])
-                      : const SizedBox(),
-                ),
-              ],
-            ),
-          );
-        },
-      ),
+              // right item...........
+              Expanded(
+                child: secondIndex < controller.items.length
+                    ? _menuItem(controller.items[secondIndex])
+                    : const SizedBox(),
+              ),
+            ],
+          ),
+        );
+      }),
     );
   }
 
-  // ================= SINGLE ITEM =================
   Widget _menuItem(Map<String, String> item) {
     return GestureDetector(
       onTap: () {
-       Get.toNamed(AppRoutes.menuItemDetails);
+        Get.toNamed(AppRoutes.menuItemDetails);
       },
       child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 16),
+        padding: const EdgeInsets.symmetric(
+            horizontal: 14,
+            vertical: 16,
+        ),
         decoration: BoxDecoration(
           color: AppColors.white,
           borderRadius: BorderRadius.circular(8),
           border: Border.all(
-            color: AppColors.containerBorderColor,
-            width: 1
-          )
+              color: AppColors.containerBorderColor,
+              width: 1,
+          ),
         ),
         child: Row(
           children: [
-            Image.asset(
-              item["image"]!,
-              height: 24,
-              width: 24,
-            ),
+            Image.asset(item["image"]!, height: 24, width: 24),
             const SizedBox(width: 10),
             Expanded(
               child: Text(
