@@ -50,7 +50,7 @@ class DashboardController extends GetxController {
     },
     {
       "title": "D. Generator",
-      "image": IconsPath.charge,
+      "image": IconsPath.generator,
     },
     {
       "title": "Water Process",

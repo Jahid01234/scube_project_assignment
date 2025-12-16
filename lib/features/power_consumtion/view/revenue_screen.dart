@@ -19,7 +19,7 @@ class RevenueScreen extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomCircularProgress(spentAmount: 8897455, totalBudget: 10000000,title: "tk",),
+          CustomCircularProgress(spentAmount: 8897455, totalBudget: 10000000,title: "tk",showOnlyAmount: true),
           const SizedBox(height: 16),
           Obx(
                 () => Container(

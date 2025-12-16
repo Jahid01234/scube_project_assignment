@@ -70,6 +70,7 @@ class DashboardScreen extends StatelessWidget {
                             label1: model.label1,
                             label2: model.label2,
                             isLast: index == controller.dataTypeList.length - 1,
+                            index: index,
                             onTap: () {
                               Get.toNamed(AppRoutes.powerConsumptionHistory);
                             },

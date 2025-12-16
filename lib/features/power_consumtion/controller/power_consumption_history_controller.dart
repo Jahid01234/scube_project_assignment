@@ -1,15 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:intl/intl.dart';
 import 'package:scube_assignment/features/power_consumtion/model/energy_data.dart';
 import 'package:scube_assignment/features/power_consumtion/model/revenue_data.dart';
 
 class PowerConsumptionController extends GetxController {
   // Observable variables
   var isDataView = true.obs;
-  var currentValue = 55.00.obs;
-  var currentUnit = 'kWh/Sqft'.obs;
-  var energyChart = 5.53.obs;
+  var isTodayData = true.obs;
+
 
 
 
@@ -43,13 +40,10 @@ class PowerConsumptionController extends GetxController {
 
   void toggleView() {
     isDataView.value = !isDataView.value;
-    if (isDataView.value) {
-      currentValue.value = 55.00;
-      currentUnit.value = 'kWh/Sqft';
-    } else {
-      currentValue.value = 8897455.0;
-      currentUnit.value = 'tk';
-    }
+  }
+
+  void toggleTodayDataView() {
+    isTodayData.value = !isTodayData.value;
   }
 
   void toggleDatePicker() {

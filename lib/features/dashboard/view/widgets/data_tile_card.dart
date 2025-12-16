@@ -10,6 +10,7 @@ class DataTileCard extends StatelessWidget {
   final String? label1;
   final String? label2;
   final bool isLast;
+  final int? index;
 
   const DataTileCard({
     super.key,
@@ -18,6 +19,7 @@ class DataTileCard extends StatelessWidget {
     this.label1,
     this.label2,
     this.isLast = false,
+    this.index,
   });
 
   @override
@@ -30,7 +32,7 @@ class DataTileCard extends StatelessWidget {
           margin: EdgeInsets.only(bottom: getHeight(12)),
           padding: EdgeInsets.all(getWidth(14)),
           decoration: BoxDecoration(
-            color: isLast? Color(0xffE5F4FE).withValues(alpha: 0.5) :  Color(0xffE5F4FE),
+            color: isLast? Color(0xffE5F4FE).withValues(alpha: 0.3) :  Color(0xffE5F4FE),
             borderRadius: BorderRadius.circular(4),
             border: Border.all(
               color: AppColors.containerBorderColor,
@@ -55,7 +57,7 @@ class DataTileCard extends StatelessWidget {
                           width: 12,
                           height: 12,
                           decoration: BoxDecoration(
-                            color: model.isActive == true ? Color(0xff78C6FF):Color(0xffFB902E),
+                            color: index == 1 ? Color(0xffFB902E):Color(0xff78C6FF),
                             borderRadius: BorderRadius.circular(2),
                           ),
                         ),
@@ -73,11 +75,11 @@ class DataTileCard extends StatelessWidget {
                               ),
                               SizedBox(width: 4,),
                               Text(
-                                model.isActive == true ? "(Active)" : "(Inactive)",
+                                model.isActive == false ? "(Active)" : "(Inactive)",
                                 style: globalTextStyle(
                                   fontWeight: FontWeight.w500,
                                   fontSize: 10,
-                                  color:  model.isActive == true ? AppColors.appPrimaryColor : AppColors.red,
+                                  color:  model.isActive == false ? AppColors.appPrimaryColor : AppColors.red,
                                 ),
                               ),
                             ],

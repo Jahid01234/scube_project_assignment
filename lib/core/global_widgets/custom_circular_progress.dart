@@ -7,12 +7,16 @@ class CustomCircularProgress extends StatelessWidget {
   final double spentAmount;
   final double totalBudget;
   final String title;
+  final bool showOnlyAmount;
+  final String? customModifierText;
 
   const CustomCircularProgress({
     super.key,
     required this.spentAmount,
     required this.totalBudget,
-    required this.title
+    required this.title,
+    this.showOnlyAmount = false,
+    this.customModifierText,
   });
 
   @override
@@ -34,8 +38,8 @@ class CustomCircularProgress extends StatelessWidget {
             handlerSize: 0,
           ),
           customColors: CustomSliderColors(
-            trackColor: Color(0xff55B4FF).withValues(alpha: 0.15),
-            progressBarColor:AppColors.appPrimaryColor,
+            trackColor: Color(0xff55B4FF).withOpacity(0.15),
+            progressBarColor: AppColors.appPrimaryColor,
             hideShadow: true,
           ),
           infoProperties: InfoProperties(
@@ -50,11 +54,16 @@ class CustomCircularProgress extends StatelessWidget {
               color: AppColors.black,
             ),
             modifier: (double value) {
-              return spentAmount.toStringAsFixed(0);
+              if (customModifierText != null) {
+                return customModifierText!;
+              }
+              if (showOnlyAmount) {
+                return spentAmount.toInt().toString();
+              }
+              return spentAmount.toStringAsFixed(2);
             },
             bottomLabelText: title,
           ),
-
         ),
       ),
     );
