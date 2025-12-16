@@ -126,7 +126,7 @@ class LoginScreen extends StatelessWidget {
                         Get.toNamed(AppRoutes.dashboard);
                       },
                     ),
-                    SizedBox(height: size.height * 0.02),
+                    SizedBox(height: size.height * 0.01),
 
                     Center(
                       child: RichText(

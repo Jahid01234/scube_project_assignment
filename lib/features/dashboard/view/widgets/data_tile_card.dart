@@ -27,7 +27,7 @@ class DataTileCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
+        padding: const EdgeInsets.only(left: 10),
         child: Container(
           margin: EdgeInsets.only(bottom: getHeight(12)),
           padding: EdgeInsets.all(getWidth(14)),

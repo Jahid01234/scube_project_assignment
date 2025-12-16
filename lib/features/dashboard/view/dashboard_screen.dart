@@ -60,24 +60,71 @@ class DashboardScreen extends StatelessWidget {
                   ),
                   SizedBox(
                     height: getHeight(300),
-                    child: Obx(
-                      () => ListView.builder(
-                        padding: EdgeInsets.zero,
-                        itemCount: controller.dataTypeList.length,
-                        itemBuilder: (context, index) {
-                          final model = controller.dataTypeList[index];
-                          return DataTileCard(
-                            model: model,
-                            label1: model.label1,
-                            label2: model.label2,
-                            isLast: index == controller.dataTypeList.length - 1,
-                            index: index,
-                            onTap: () {
-                              Get.toNamed(AppRoutes.powerConsumptionHistory);
-                            },
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Obx(
+                                () => ListView.builder(
+                              controller: controller.scrollController,
+                              padding: EdgeInsets.zero,
+                              itemCount: controller.dataTypeList.length,
+                              itemBuilder: (context, index) {
+                                final model = controller.dataTypeList[index];
+                                return DataTileCard(
+                                  model: model,
+                                  label1: model.label1,
+                                  label2: model.label2,
+                                  isLast: index == controller.dataTypeList.length - 1,
+                                  index: index,
+                                  onTap: () {
+                                    Get.toNamed(AppRoutes.powerConsumptionHistory);
+                                  },
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 5),
+                        // Scrollbar slider
+                        Obx(() {
+                          final listHeight = getHeight(300);
+                          final sliderHeight = 60.0;
+                          final maxSliderPosition = listHeight - sliderHeight;
+                          final sliderPosition = controller.scrollProgress.value * maxSliderPosition;
+                          return Container(
+                            width: 4,
+                            height: listHeight,
+                            decoration: BoxDecoration(
+                              color: Color(0xffB6B8D0),
+                              borderRadius: BorderRadius.circular(4),
+                            ),
+                            child: Stack(
+                              children: [
+                                Positioned(
+                                  top: sliderPosition,
+                                  child: Container(
+                                    height: sliderHeight,
+                                    width: 4,
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                          colors:[
+                                            Color(0xff4E91FD),
+                                            Color(0xff080B7F),
+                                          ],
+                                        begin: Alignment.topLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
+                                      borderRadius: BorderRadius.circular(4),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           );
                         },
-                      ),
+                        ),
+                        SizedBox(width: 5),
+                      ],
                     ),
                   ),
                   SizedBox(height: getHeight(20)),
