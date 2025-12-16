@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.8
   google_fonts: ^6.3.3
   get: ^4.7.3
+  intl: ^0.20.2
+  sleek_circular_slider: ^2.1.0
 
 dev_dependencies:
   flutter_test:

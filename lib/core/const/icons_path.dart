@@ -7,4 +7,6 @@ class IconsPath {
   static const String generator = "assets/icons/generator.png";
   static const String power = "assets/icons/power.png";
   static const String solarCell = "assets/icons/solarCell.png";
+  static const String solarChart = "assets/icons/solarChart.png";
+  static const String notification = "assets/icons/notification.png";
 }

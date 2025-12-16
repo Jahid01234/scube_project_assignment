@@ -6,6 +6,7 @@ import 'package:scube_assignment/core/const/app_size.dart';
 import 'package:scube_assignment/core/const/images_path.dart';
 import 'package:scube_assignment/core/global_widgets/app_primary_button.dart';
 import 'package:scube_assignment/core/global_widgets/custom_text_field.dart';
+import 'package:scube_assignment/core/routes/routes.dart';
 import 'package:scube_assignment/core/style/global_text_style.dart';
 import '../controller/login_controller.dart';
 
@@ -127,6 +128,7 @@ class LoginScreen extends StatelessWidget {
                       text: "Login",
                       textColor: AppColors.white,
                       onTap: () {
+                        Get.toNamed(AppRoutes.dashboard);
                       },
                     ),
                     SizedBox(height: getHeight(15)),
